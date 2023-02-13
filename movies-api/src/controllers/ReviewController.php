@@ -1,11 +1,11 @@
 <?php 
 
-class MovieController
+class ReviewController
 {
-    private $movieGateway=null;
+    private $reviewGateway=null;
     public function __construct($gateway)
     {
-        $this->movieGateway=$gateway;
+        $this->reviewGateway=$gateway;
     }
 
     public function handleRequest($method,$id)
@@ -27,16 +27,16 @@ class MovieController
         switch($method)
         {
             case 'GET':{
-                $response=$this->movieGateway->index();
+                $response=$this->reviewGateway->index();
                 echo json_encode($response);
                 break;
             }
             case 'POST':{
-                $movie=(array)json_decode(file_get_contents('php://input'),true);
-                $response=$this->movieGateway->create($movie);
+                $review=(array)json_decode(file_get_contents('php://input'),true);
+                $response=$this->reviewGateway->create($review);
                 if($response)
                 {
-                    echo json_encode(array("success"=>true,"message"=>"Movie Created"));
+                    echo json_encode(array("success"=>true,"message"=>"Review Created"));
                 }
                 else 
                 {
@@ -56,16 +56,16 @@ class MovieController
         switch($method)
         {
             case 'GET':{
-                $response=$this->movieGateway->show($id);
+                $response=$this->reviewGateway->show($id);
                 echo json_encode($response);
                 break;
             }
             case 'PUT':{
-                $movie=(array)json_decode(file_get_contents('php://input'),true);
-                $response=$this->movieGateway->update($movie,$id);
+                $review=(array)json_decode(file_get_contents('php://input'),true);
+                $response=$this->reviewGateway->update($review,$id);
                 if($response)
                 {
-                    echo json_encode(array("success"=>true,"message"=>"Movie Updated"));
+                    echo json_encode(array("success"=>true,"message"=>"Review Updated"));
                 }
                 else 
                 {
@@ -76,10 +76,10 @@ class MovieController
 
             }
             case 'DELETE':{
-                $response=$this->movieGateway->delete($id);
+                $response=$this->reviewGateway->delete($id);
                 if($response)
                 {
-                    echo json_encode(array("success"=>true,"message"=>"Movie Deleted"));
+                    echo json_encode(array("success"=>true,"message"=>"Review Deleted"));
                 }
                 else 
                 {

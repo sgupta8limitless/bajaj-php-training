@@ -1,0 +1,16 @@
+
+<section>
+
+<form #reviewForm="ngForm" (ngSubmit)="onSubmit(reviewForm)">
+    <input ngModel placeholder="Enter Email"  name="email" type="email">
+    <input ngModel placeholder="Enter Message"  name= "review" type="text">
+    <input ngModel placeholder="rating"  name="rating" type="number">
+    <button class="btn btn-dark">Submit</button>
+</form>
+
+<div class="message">
+    {{message}}
+</div>
+
+
+</section>
