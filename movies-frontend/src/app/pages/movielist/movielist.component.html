@@ -13,7 +13,8 @@
                 <h2>{{movie.name}}</h2>
                 <p>{{movie.cast}}</p>
                 <p>{{movie.rating}}</p>
-                <button class="btn btn-dark">View More</button>
+
+                <button class="btn btn-dark" routerLink="/movie/{{movie.id}}" routerLinkActive="router-link-active" >View More</button>
             </div>
 
         </div>  

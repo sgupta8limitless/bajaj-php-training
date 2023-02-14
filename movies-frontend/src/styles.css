@@ -2,6 +2,8 @@
 * 
 {
     color:white;
+    margin:0;
+    padding: 0;
 }
 
 body
@@ -9,3 +11,14 @@ body
     background-color: #1a1a1a;
     
 }
+
+p
+{
+    margin: unset;
+}
+
+input,textarea
+{
+    color: black;
+}
+
